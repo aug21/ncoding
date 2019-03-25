@@ -238,6 +238,7 @@ if ($w == '' || $w == 'r') {
                      wr_8 = '$wr_8',
                      wr_9 = '$wr_9',
                      wr_10 = '$wr_10' ";
+	// 190325 ncoding // mmb_or_novel 게시판 글 로그 업로드 안 되는 부분 수정
 	if($wr_log_type) $sql .= ", wr_log_type = '$wr_log_type'";
 	if($wr_content_story) $sql .= ", wr_content_story = '$wr_content_story'";
     sql_query($sql);
@@ -324,8 +325,13 @@ if ($w == '' || $w == 'r') {
                      wr_option = '{$html},{$secret},{$mail}',
                      wr_subject = '{$wr_subject}',
                      wr_content = '{$wr_content}',";
-	if($wr_content_story) $sql .= "wr_content_story = '{$wr_content_story}',";
-    $sql .= "        wr_link1 = '{$wr_link1}',
+	// 190325 ncoding // mmb_or_novel 게시판 글 로그 수정 안 되는 부분 수정
+	if($wr_content_story) $sql .= "
+					 wr_content_story = '{$wr_content_story}',";
+	if($wr_log_type) $sql .= "
+					 wr_log_type = '{$wr_log_type}',";
+    $sql .= "
+					 wr_link1 = '{$wr_link1}',
                      wr_link2 = '{$wr_link2}',
                      mb_id = '{$mb_id}',
                      wr_name = '{$wr_name}',
@@ -335,7 +341,6 @@ if ($w == '' || $w == 'r') {
 					 wr_height = '$wr_height',
 					 wr_url = '$wr_url',
 					 wr_type = '$wr_type',
-					 wr_log_type = '{$wr_log_type}',
 					 wr_secret = '$wr_secret',
 					 wr_adult = '$wr_adult',
 					 wr_wide = '$wr_wide',
