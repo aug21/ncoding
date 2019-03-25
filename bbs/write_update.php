@@ -34,7 +34,7 @@ if (isset($_POST['wr_content'])) {
     $wr_content = preg_replace("#[\\\]+$#", "", $wr_content);
 }
 /*if ($wr_content == '') {
-    $msg[] = '<strong>내용</strong>을 입력하세요.';
+    $msg[] = '<strong>내용</strong>을 입력하세요.'; 
 }*/
 $wr_link1 = '';
 if (isset($_POST['wr_link1'])) {
